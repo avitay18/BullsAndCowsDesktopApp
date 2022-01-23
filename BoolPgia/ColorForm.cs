@@ -17,7 +17,6 @@ namespace BoolPgia
         {
             InitializeComponent();
         }
-
         private void ColorForm_Load(object sender, EventArgs e)
         {
 
@@ -28,7 +27,6 @@ namespace BoolPgia
             this.m_Color = clickedButton.BackColor;
             this.Close();
         }
-
         public Color Color
         {
             get

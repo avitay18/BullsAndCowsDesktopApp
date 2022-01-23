@@ -12,17 +12,14 @@ namespace BoolPgia
 {
     public partial class EntryForm : Form
     {
-
         public EntryForm()
         {
             InitializeComponent();
         }
-
         private void EntryForm_Load(object sender, EventArgs e)
         {
 
         }
-
         private void StartButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -31,8 +28,6 @@ namespace BoolPgia
             gameForm.ShowDialog();
             this.Close();
         }
-
-
         private void NumberOfChancesButton_Click(object sender, EventArgs e)
         {
             if (this.m_NumberOfGuesses < 10 && this.m_NumberOfGuesses >= 4)

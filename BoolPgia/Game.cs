@@ -12,7 +12,7 @@ namespace BoolPgia
     {
         private const int k_AmountOfSelections = 4;
         private List<Color> m_ComputerSelection;
-        private List<Color> m_ColorsList = new List<Color>
+        private readonly List<Color> m_ColorsList = new List<Color>
                                                               {
                                                                   Color.Purple, Color.Red, Color.Green, Color.Aqua, Color.Blue, Color.Yellow, Color.Brown, Color.White
                                                               };

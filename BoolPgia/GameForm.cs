@@ -15,12 +15,12 @@ namespace BoolPgia
 
         private int m_CurrentLevel = 1;
         private readonly Game r_CurrentGame;
-        private int m_GameHeight;
+        private readonly int r_GameHeight;
         public GameForm(int i_NumberOfGuesses, Game i_NewGame)
         {
             InitializeComponent(i_NumberOfGuesses);
             this.r_CurrentGame = i_NewGame;
-            this.m_GameHeight = i_NumberOfGuesses;
+            this.r_GameHeight = i_NumberOfGuesses;
         }
 
         public List<Button> ButtonsList
@@ -57,7 +57,7 @@ namespace BoolPgia
         {
             Button arrowButton = sender as Button;
             this.r_CurrentGame.CheckAndUpdateUserGuess(ButtonsList, ResultButtonList);
-            if(this.r_CurrentGame.CheckWin(ResultButtonList) || this.m_CurrentLevel == this.m_GameHeight)
+            if(this.r_CurrentGame.CheckWin(ResultButtonList) || this.m_CurrentLevel == this.r_GameHeight)
             {
                 this.r_CurrentGame.ShowComputerGuess(this.m_ComputerButtonsList);
                 disableAllControls();
@@ -72,13 +72,6 @@ namespace BoolPgia
         {
             
         }
-        private void makeRowOfButtonsDisable(int i_CurrentLevel)
-        {
-            foreach(Button button in this.m_ButtonsList[i_CurrentLevel - 1])
-            {
-                button.Enabled = false;
-            }   
-        }
         private void disableAllControls()
         {
             foreach(Control control in this.Controls)
@@ -86,6 +79,5 @@ namespace BoolPgia
                 control.Enabled = false;
             }
         }
-       
     }
 }
