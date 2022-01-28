@@ -38,21 +38,23 @@ namespace BoolPgia
                 return this.m_ShowGuessResultButtonsList[this.m_CurrentLevel - 1];
             }
         }
+
         private void button_Click(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
             ColorForm colorForm = new ColorForm();
             colorForm.ShowDialog();
-            if (!this.r_CurrentGame.IsColorAlreadySelected(colorForm.Color, ButtonsList))
+            if(!this.r_CurrentGame.IsColorAlreadySelected(colorForm.Color, ButtonsList))
             {
                 clickedButton.BackColor = colorForm.Color;
             }
 
-            if(ButtonsList[ButtonsList.Count - 1].BackColor != DefaultBackColor)
+            if(checkRow())
             {
                 this.m_ArrowButtonsList[this.m_CurrentLevel - 1].Enabled = true;
             }
         }
+
         private void arrowButton_Click(object sender, EventArgs e)
         {
             Button arrowButton = sender as Button;
@@ -71,6 +73,19 @@ namespace BoolPgia
         private void GameForm_Load(object sender, EventArgs e)
         {
             
+        }
+        private bool checkRow()
+        {
+            int counter = 0;
+            foreach(Button button in ButtonsList)
+            {
+                if(button.BackColor != DefaultBackColor)
+                {
+                    counter++;
+                }
+            }
+
+            return counter == ButtonsList.Count;
         }
         private void disableAllControls()
         {
